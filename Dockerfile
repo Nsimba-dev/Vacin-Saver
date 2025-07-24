@@ -19,7 +19,7 @@ WORKDIR /var/www/html
 # Installer les dépendances PHP (sans les dev)
 RUN composer install --no-dev --optimize-autoloader
 
-# Copier tout le reste de l’application
+# Copier tout le reste de l’application, y compris le dossier Asset
 COPY . /var/www/html/
 
 # Droits d'accès corrects
