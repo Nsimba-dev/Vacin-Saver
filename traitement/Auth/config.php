@@ -1,19 +1,9 @@
 <?php
-require_once realpath(__DIR__ . '/../../vendor/autoload.php');
-
-$rootPath = realpath(__DIR__ . '/../../');
-if ($rootPath === false) {
-    die('Erreur : impossible de résoudre le chemin racine du projet.');
-}
-
-$dotenv = Dotenv\Dotenv::createImmutable($rootPath);
-$dotenv->load();
-
-$user = $_ENV['DB_USER'];
-$pass = $_ENV['DB_PASSWORD'];
-$host = $_ENV['DB_HOST'];
-$port = $_ENV['DB_PORT'];
-$dbname = $_ENV['DB_NAME'];
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASSWORD');
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT');
+$dbname = getenv('DB_NAME');
 
 try {
     $dsn = "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4";
