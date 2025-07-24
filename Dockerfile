@@ -1,15 +1,24 @@
-# Utilise une image officielle PHP avec Apache
 FROM php:8.2-apache
 
-# Copie tous les fichiers du projet dans le dossier web d'Apache
+# Installer dépendances pour GD (WebP) et PDO MySQL
+RUN apt-get update && apt-get install -y libwebp-dev libjpeg-dev libpng-dev unzip \
+    && docker-php-ext-configure gd --with-webp --with-jpeg \
+    && docker-php-ext-install gd pdo pdo_mysql
+
+# Installer Composer globalement
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+# Copier les fichiers de l'application
 COPY . /var/www/html/
 
-# Donne les bons droits d'accès
+# Installer les dépendances PHP via Composer
+WORKDIR /var/www/html
+RUN composer install --no-dev --optimize-autoloader
+
+# Permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# Active le module Apache mod_rewrite (utile pour les frameworks ou .htaccess)
 RUN a2enmod rewrite
 
-# Expose le port 80
 EXPOSE 80
