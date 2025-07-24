@@ -6,3 +6,4 @@ services:
     branch: main
     buildCommand: ""
     startCommand: ""
+    staticPublishPath: /var/www/html/Asset
