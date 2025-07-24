@@ -1,0 +1,21 @@
+.Conteneur_app .Conteneur_btn button{
+    width: 30%;
+}
+.Conteneur_app .Conteneur_list {
+    border: none;
+    box-shadow: none;
+}
+
+
+.Conteneur_app .Conteneur_list .Conteneur_agent .plannig{
+    border-radius: 7px;
+    background: #757575;
+    width: 67%;
+    margin-left: 14px;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 10px;
+}
