@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $matricule = trim($_POST['matricule'] ?? '');
     $password = trim($_POST['password'] ?? '');
 
-    $stmt = $bd->prepare("SELECT * FROM Admin_sup WHERE Matricul_admin = :matricule LIMIT 1");
+    $stmt = $bd->prepare("SELECT * FROM admin_sup WHERE Matricul_admin = :matricule LIMIT 1");
     $stmt->execute(['matricule' => $matricule]);
     $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
