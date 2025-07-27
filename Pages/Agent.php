@@ -55,7 +55,7 @@ if (!isset($_SESSION['admin'])) {
              <div class="Conteneur_list">
                 <!-- Requette pour affiche tous le agent en ligne de ma commune d'affectation -->
                 <?php
-                    $Requette_sql = "SELECT A.Matricul_Agent , A.Nom_Agent , A.Prenom_Agent , A.statut  FROM Agent A INNER JOIN Departement D ON A.id_Departement = D.id_Departement WHERE D.Commune_affectation = :Comunne AND A.statut LIKE'%on%'";
+                    $Requette_sql = "SELECT A.Matricul_Agent , A.Nom_Agent , A.Prenom_Agent , A.statut  FROM agent A INNER JOIN Departement D ON A.id_Departement = D.id_Departement WHERE D.Commune_affectation = :Comunne AND A.statut LIKE'%on%'";
                     try{
                         $Resultat = $bd->prepare($Requette_sql);
                         $Resultat->bindParam(':Comunne', $Commune_affectation);
