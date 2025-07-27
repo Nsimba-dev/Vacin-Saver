@@ -202,7 +202,7 @@ if (!isset($_SESSION['admin'])) {
       <button class="fermer-btn" onclick="fermerFormulaire()">✖</button>
 
       <h1>Formulaire de creation d'evenement</h1>
-      <form id="agentForm" method="POST" action="../traitement/pages_traitement/evenement.php">
+      <form id="agentForm" method="POST" action="../traitement/Pages_Traitement/evenement.php">
         <div class="form-group">
           <label for="nom">Titre</label>
           <input type="text" id="nom" name="Titre" placeholder="Entrez le Titre" required />
