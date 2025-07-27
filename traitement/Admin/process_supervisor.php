@@ -78,7 +78,7 @@ require_once(__DIR__ . '/../Auth/config.php');
                 ':id_Annee_vacinnation'=> $id_Annee_vacinnation
             ]);
           echo '
-            <form id="redirectForm" action="../../admin/configuration.php" method="POST">
+            <form id="redirectForm" action="../../Admin/configuration.php" method="POST">
                 <input type="hidden" name="message" value="Admin créé avec succès">
                 <input type="hidden" name="matricule" value="' . htmlspecialchars($Matricul_admin) . '">
                 <input type="hidden" name="password" value="' . htmlspecialchars($motDePasseClair) . '">
