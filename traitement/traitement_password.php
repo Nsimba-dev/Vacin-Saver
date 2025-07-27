@@ -26,7 +26,7 @@ if ($newPassword !== $confirmPassword) {
 $hashPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 
 try {
-    $sql = "UPDATE Agent SET password = :password WHERE Matricul_Agent = :matricule";
+    $sql = "UPDATE agent SET password = :password WHERE Matricul_Agent = :matricule";
     $stmt = $bd->prepare($sql);
     $stmt->execute([
         'password' => $hashPassword,
