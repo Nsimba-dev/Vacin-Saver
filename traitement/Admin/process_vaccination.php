@@ -13,7 +13,7 @@ require_once(__DIR__ . '/../Auth/config.php');
             $Fin_vacination = htmlspecialchars($_POST['Fin_vacination']);
             $Matricul_admin = htmlspecialchars($_POST['Matricul_admin']);
             
-            $sql = 'INSERT INTO annee_vacinnation (Annee, Periode, Debut_vacination, Fin_vacination, Matricul_admin) VALUES (:annee, :periode, :debut, :fin, :matricule)';
+            $sql = 'INSERT INTO annee_vacinnation (Annee, Periode, Debut_vacination, Fin_vacination, id_admin_sup) VALUES (:annee, :periode, :debut, :fin, :matricule)';
 
             $rqt = $bd->prepare($sql);
             $rqt->execute([
